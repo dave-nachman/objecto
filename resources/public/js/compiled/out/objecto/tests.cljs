@@ -5,7 +5,13 @@
 
 ;; Reader 
 (deftest read-number
- (is (= (first (read "42.")) [:number "42"])))
+  (is (= (first (read "42.")) [:number "42"])))
+
+(deftest read-decimal
+  (is (= (first (read "42.232.")) [:number "42.232"])))
+
+(deftest read-negative
+  (is (= (first (read "-42.")) [:number "-42"])))
 
 (deftest read-identifier
   (is (= (first (read "ddd.")) [:identifier "ddd"])))
@@ -16,16 +22,19 @@
 (deftest read-string
   (is (= (first (read "'string'")) [:string "string"])))
 
+(deftest read-character
+  (is (= (first (read "$s")) [:character "s"])))
+
 (deftest read-comment
   (is (= (first (read "\"comment\"")) [:comment "comment"])))
 
 (deftest read-code-block
-  (is 
-     (= 
-        (read "[ a + b ]") 
-        [[:code-block 
-          [:code-block-params]
-          [:binary-message [:identifier "a"] [:binary-identifier "+"] [:identifier "b"]]]])))
+  (is
+   (=
+    (read "[ a + b ]")
+    [[:code-block
+      [:code-block-params]
+      [:binary-message [:identifier "a"] [:binary-identifier "+"] [:identifier "b"]]]])))
 
 (deftest read-unary-message
   (is (= (first (read "receiver message."))
@@ -34,7 +43,10 @@
 (deftest read-nested-unary-message
   (is (= (first (read "a b c."))
          [:unary-message [:unary-message [:identifier "a"] [:identifier "b"]]
-                         [:identifier "c"]]))) 
+          [:identifier "c"]])))
 ;; Eval        
 (deftest test-number
   (is (= (read-eval "42.") 42)))
+
+(deftest block-eval
+  (is (= (read-eval "[ :x | x ] value: 42") 42)))

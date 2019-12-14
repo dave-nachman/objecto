@@ -30,25 +30,25 @@ throw cljs.core.missing_protocol.call(null,"IEdn.-edn",x);
 
 fipp.ednize.edn = (function fipp$ednize$edn(x){
 if(cljs.core.object_QMARK_.call(null,x)){
-return cljs.core.tagged_literal.call(null,new cljs.core.Symbol(null,"js","js",-886355190,null),cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,(function (){var iter__4523__auto__ = (function fipp$ednize$edn_$_iter__27030(s__27031){
+return cljs.core.tagged_literal.call(null,new cljs.core.Symbol(null,"js","js",-886355190,null),cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,(function (){var iter__4523__auto__ = (function fipp$ednize$edn_$_iter__30743(s__30744){
 return (new cljs.core.LazySeq(null,(function (){
-var s__27031__$1 = s__27031;
+var s__30744__$1 = s__30744;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__27031__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__30744__$1);
 if(temp__5720__auto__){
-var s__27031__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__27031__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__27031__$2);
+var s__30744__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__30744__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__30744__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__27033 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__27032 = (0);
+var b__30746 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__30745 = (0);
 while(true){
-if((i__27032 < size__4522__auto__)){
-var k = cljs.core._nth.call(null,c__4521__auto__,i__27032);
-cljs.core.chunk_append.call(null,b__27033,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,k),(x[k])], null));
+if((i__30745 < size__4522__auto__)){
+var k = cljs.core._nth.call(null,c__4521__auto__,i__30745);
+cljs.core.chunk_append.call(null,b__30746,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,k),(x[k])], null));
 
-var G__27038 = (i__27032 + (1));
-i__27032 = G__27038;
+var G__30751 = (i__30745 + (1));
+i__30745 = G__30751;
 continue;
 } else {
 return true;
@@ -56,13 +56,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__27033),fipp$ednize$edn_$_iter__27030.call(null,cljs.core.chunk_rest.call(null,s__27031__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__30746),fipp$ednize$edn_$_iter__30743.call(null,cljs.core.chunk_rest.call(null,s__30744__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__27033),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__30746),null);
 }
 } else {
-var k = cljs.core.first.call(null,s__27031__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,k),(x[k])], null),fipp$ednize$edn_$_iter__27030.call(null,cljs.core.rest.call(null,s__27031__$2)));
+var k = cljs.core.first.call(null,s__30744__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,k),(x[k])], null),fipp$ednize$edn_$_iter__30743.call(null,cljs.core.rest.call(null,s__30744__$2)));
 }
 } else {
 return null;
@@ -94,8 +94,8 @@ return cljs.core.tagged_literal.call(null,new cljs.core.Symbol(null,"inst","inst
 var ns = cljs.core.str.cljs$core$IFn$_invoke$arity$1(n);
 while(true){
 if((cljs.core.count.call(null,ns) < len)){
-var G__27039 = ["0",ns].join('');
-ns = G__27039;
+var G__30752 = ["0",ns].join('');
+ns = G__30752;
 continue;
 } else {
 return ns;
@@ -141,4 +141,4 @@ fipp.ednize.record__GT_tagged = (function fipp$ednize$record__GT_tagged(x){
 return cljs.core.tagged_literal.call(null,clojure.string.split.call(null,cljs.core.pr_str.call(null,cljs.core.type.call(null,x)),/\//,(2)),cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,x));
 });
 
-//# sourceMappingURL=ednize.js.map?rel=1576339900510
+//# sourceMappingURL=ednize.js.map?rel=1576361237180

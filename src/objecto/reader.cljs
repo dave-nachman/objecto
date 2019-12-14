@@ -5,7 +5,7 @@
   (insta/parser
    "<start> = <w>? (top | top <'.'> (<w> top <'.'>)*) <w>?
     <top> = expr | assignment | method-definition | comment
-    <expr> = unary-message | keyword-message | bin-or-value | return-expr | cascaded-message
+    <expr> = unary-message |  cascaded-message | keyword-message | bin-or-value | return-expr
     return-expr = <return> <w>? expr
     <bin-or-value> = binary-message | value
     assignment = identifier <w> <':='> <w> expr
@@ -14,14 +14,15 @@
     cascade-stmt = param (<w> param)*
     unary-message = (value | unary-message) <w> identifier
     binary-message = (value | unary-message | binary-message) <w> binary-identifier <w> (value | unary-message)
-    <value> = (identifier | string | number | boolean | nil | symbol | code-block) <(<w> comment)>?
+    <value> = (identifier | character | string | number | boolean | nil | symbol | code-block) <(<w> comment)>?
     identifier = #'[A-z]+'
     symbol = bare-symbol | quoted-symbol
     <bare-symbol> = <'#'> #'[A-z]+'
     <quoted-symbol> = <\"#'\"> #'[A-z ]+' <\"'\">
     string = <\"'\"> #'[A-z ]+' <\"'\">
     comment = <'\"'> #'[A-z ]+' <'\"'> 
-    number = #'\\d+'
+    number = #'-?\\d+(.\\d+)?'
+    character = <'$'> #'[A-z]'
     boolean = 'true' | 'false'
     nil = 'nil'
     return = <'^'>
@@ -33,3 +34,5 @@
     method-definition = expr <w>? <'>>'> <w>? identifier <w> locals <w> (expr <'.'>)*
     w = #'( |\n)+'
    "))
+
+(read "'sss'")

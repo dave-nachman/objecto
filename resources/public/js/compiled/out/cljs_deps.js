@@ -102,4 +102,5 @@ goog.addDependency("../reagent/impl/component.js", ['reagent.impl.component'], [
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'react', 'cljs.core', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'clojure.string', 'clojure.walk']);
 goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.debug', 'react_dom']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'react', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'reagent.dom']);
-goog.addDependency("../objecto/core.js", ['objecto.core'], ['reagent.core', 'cljs.core', 'objecto.repl', 'objecto.env']);
+goog.addDependency("../objecto/ui.js", ['objecto.ui'], ['reagent.core', 'cljs.core', 'objecto.repl', 'objecto.env']);
+goog.addDependency("../objecto/core.js", ['objecto.core'], ['reagent.core', 'objecto.ui', 'cljs.core']);

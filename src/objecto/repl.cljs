@@ -32,3 +32,7 @@
   
 
 (read-eval "[x | x ] value:")
+
+(read-eval "-23 abs")
+
+(read-eval "'x' double")

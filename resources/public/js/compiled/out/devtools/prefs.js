@@ -39,14 +39,14 @@ return devtools.prefs.set_prefs_BANG_.call(null,cljs.core.merge.call(null,devtoo
 });
 devtools.prefs.update_pref_BANG_ = (function devtools$prefs$update_pref_BANG_(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___29517 = arguments.length;
-var i__4731__auto___29518 = (0);
+var len__4730__auto___32678 = arguments.length;
+var i__4731__auto___32679 = (0);
 while(true){
-if((i__4731__auto___29518 < len__4730__auto___29517)){
-args__4736__auto__.push((arguments[i__4731__auto___29518]));
+if((i__4731__auto___32679 < len__4730__auto___32678)){
+args__4736__auto__.push((arguments[i__4731__auto___32679]));
 
-var G__29519 = (i__4731__auto___29518 + (1));
-i__4731__auto___29518 = G__29519;
+var G__32680 = (i__4731__auto___32679 + (1));
+i__4731__auto___32679 = G__32680;
 continue;
 } else {
 }
@@ -65,14 +65,14 @@ return devtools.prefs.set_pref_BANG_.call(null,key,new_val);
 devtools.prefs.update_pref_BANG_.cljs$lang$maxFixedArity = (2);
 
 /** @this {Function} */
-devtools.prefs.update_pref_BANG_.cljs$lang$applyTo = (function (seq29514){
-var G__29515 = cljs.core.first.call(null,seq29514);
-var seq29514__$1 = cljs.core.next.call(null,seq29514);
-var G__29516 = cljs.core.first.call(null,seq29514__$1);
-var seq29514__$2 = cljs.core.next.call(null,seq29514__$1);
+devtools.prefs.update_pref_BANG_.cljs$lang$applyTo = (function (seq32675){
+var G__32676 = cljs.core.first.call(null,seq32675);
+var seq32675__$1 = cljs.core.next.call(null,seq32675);
+var G__32677 = cljs.core.first.call(null,seq32675__$1);
+var seq32675__$2 = cljs.core.next.call(null,seq32675__$1);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__29515,G__29516,seq29514__$2);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__32676,G__32677,seq32675__$2);
 });
 
 
-//# sourceMappingURL=prefs.js.map?rel=1576339907254
+//# sourceMappingURL=prefs.js.map?rel=1576361240500

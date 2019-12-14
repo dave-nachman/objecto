@@ -43,7 +43,7 @@ return nodejs_exit.call(null,(cljs.core.truth_(success_QMARK_)?(0):(1)));
 } else {
 return doo.runner._STAR_exit_fn_STAR_.call(null,success_QMARK_);
 }
-}catch (e27598){var e = e27598;
+}catch (e31085){var e = e31085;
 cljs.core.println.call(null,"WARNING: doo's exit function was not properly set");
 
 return cljs.core.println.call(null,e);
@@ -58,7 +58,7 @@ cljs.core.println.call(null,"WARNING: doo's init function was not set or is not 
 return doo.runner.exit_BANG_.call(null,false);
 } else {
 try{return cljs.core._STAR_main_cli_fn_STAR_.call(null,a);
-}catch (e27599){var e = e27599;
+}catch (e31086){var e = e31086;
 cljs.core.println.call(null);
 
 cljs.core.println.call(null,"ERROR: Exception outside tests:");
@@ -93,4 +93,4 @@ throw (new Error("Assert failed: (fn? f)"));
 return cljs.core._STAR_main_cli_fn_STAR_ = f;
 });
 
-//# sourceMappingURL=runner.js.map?rel=1576339903409
+//# sourceMappingURL=runner.js.map?rel=1576361237801

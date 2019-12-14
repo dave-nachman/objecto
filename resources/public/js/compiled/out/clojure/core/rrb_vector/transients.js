@@ -28,25 +28,25 @@ return ret;
 clojure.core.rrb_vector.transients.push_tail_BANG_ = (function clojure$core$rrb_vector$transients$push_tail_BANG_(shift,cnt,root_edit,current_node,tail_node){
 var ret = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,current_node);
 if(clojure.core.rrb_vector.nodes.regular_QMARK_.call(null,ret)){
-var n_26693 = ret;
-var shift_26694__$1 = shift;
+var n_28883 = ret;
+var shift_28884__$1 = shift;
 while(true){
-var arr_26695 = n_26693.arr;
-var subidx_26696 = (((cnt - (1)) >> shift_26694__$1) & (31));
-if((shift_26694__$1 === (5))){
-(arr_26695[subidx_26696] = tail_node);
+var arr_28885 = n_28883.arr;
+var subidx_28886 = (((cnt - (1)) >> shift_28884__$1) & (31));
+if((shift_28884__$1 === (5))){
+(arr_28885[subidx_28886] = tail_node);
 } else {
-var child_26697 = (arr_26695[subidx_26696]);
-if((child_26697 == null)){
-(arr_26695[subidx_26696] = clojure.core.rrb_vector.trees.new_path.call(null,tail_node.arr,root_edit,(shift_26694__$1 - (5)),tail_node));
+var child_28887 = (arr_28885[subidx_28886]);
+if((child_28887 == null)){
+(arr_28885[subidx_28886] = clojure.core.rrb_vector.trees.new_path.call(null,tail_node.arr,root_edit,(shift_28884__$1 - (5)),tail_node));
 } else {
-var editable_child_26698 = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,child_26697);
-(arr_26695[subidx_26696] = editable_child_26698);
+var editable_child_28888 = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,child_28887);
+(arr_28885[subidx_28886] = editable_child_28888);
 
-var G__26699 = editable_child_26698;
-var G__26700 = (shift_26694__$1 - (5));
-n_26693 = G__26699;
-shift_26694__$1 = G__26700;
+var G__28889 = editable_child_28888;
+var G__28890 = (shift_28884__$1 - (5));
+n_28883 = G__28889;
+shift_28884__$1 = G__28890;
 continue;
 }
 }
@@ -116,8 +116,8 @@ while(true){
 if((((((rngs[(subidx__$1 + (1))]) | (0)) === (0))) || ((subidx__$1 === (31))))){
 return subidx__$1;
 } else {
-var G__26701 = (subidx__$1 + (1));
-subidx__$1 = G__26701;
+var G__28891 = (subidx__$1 + (1));
+subidx__$1 = G__28891;
 continue;
 }
 break;
@@ -180,47 +180,47 @@ return ret;
 clojure.core.rrb_vector.transients.do_assoc_BANG_ = (function clojure$core$rrb_vector$transients$do_assoc_BANG_(shift,root_edit,current_node,i,val){
 var ret = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,current_node);
 if(clojure.core.rrb_vector.nodes.regular_QMARK_.call(null,ret)){
-var shift_26702__$1 = shift;
-var node_26703 = ret;
+var shift_28892__$1 = shift;
+var node_28893 = ret;
 while(true){
-if((shift_26702__$1 === (0))){
-var arr_26704 = node_26703.arr;
-(arr_26704[(i & (31))] = val);
+if((shift_28892__$1 === (0))){
+var arr_28894 = node_28893.arr;
+(arr_28894[(i & (31))] = val);
 } else {
-var arr_26705 = node_26703.arr;
-var subidx_26706 = ((i >> shift_26702__$1) & (31));
-var child_26707 = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,(arr_26705[subidx_26706]));
-(arr_26705[subidx_26706] = child_26707);
+var arr_28895 = node_28893.arr;
+var subidx_28896 = ((i >> shift_28892__$1) & (31));
+var child_28897 = clojure.core.rrb_vector.transients.ensure_editable.call(null,root_edit,(arr_28895[subidx_28896]));
+(arr_28895[subidx_28896] = child_28897);
 
-var G__26708 = (shift_26702__$1 - (5));
-var G__26709 = child_26707;
-shift_26702__$1 = G__26708;
-node_26703 = G__26709;
+var G__28898 = (shift_28892__$1 - (5));
+var G__28899 = child_28897;
+shift_28892__$1 = G__28898;
+node_28893 = G__28899;
 continue;
 }
 break;
 }
 } else {
-var arr_26710 = ret.arr;
-var rngs_26711 = clojure.core.rrb_vector.nodes.ranges.call(null,ret);
-var subidx_26712 = ((i >> shift) & (31));
-var subidx_26713__$1 = (function (){var subidx__$1 = subidx_26712;
+var arr_28900 = ret.arr;
+var rngs_28901 = clojure.core.rrb_vector.nodes.ranges.call(null,ret);
+var subidx_28902 = ((i >> shift) & (31));
+var subidx_28903__$1 = (function (){var subidx__$1 = subidx_28902;
 while(true){
-if((i < ((rngs_26711[subidx__$1]) | (0)))){
+if((i < ((rngs_28901[subidx__$1]) | (0)))){
 return subidx__$1;
 } else {
-var G__26715 = (subidx__$1 + (1));
-subidx__$1 = G__26715;
+var G__28905 = (subidx__$1 + (1));
+subidx__$1 = G__28905;
 continue;
 }
 break;
 }
 })();
-var i_26714__$1 = (((subidx_26713__$1 === (0)))?i:(i - (rngs_26711[(subidx_26713__$1 - (1))])));
-(arr_26710[subidx_26713__$1] = clojure.core.rrb_vector.transients.do_assoc_BANG_.call(null,(shift - (5)),root_edit,(arr_26710[subidx_26713__$1]),i_26714__$1,val));
+var i_28904__$1 = (((subidx_28903__$1 === (0)))?i:(i - (rngs_28901[(subidx_28903__$1 - (1))])));
+(arr_28900[subidx_28903__$1] = clojure.core.rrb_vector.transients.do_assoc_BANG_.call(null,(shift - (5)),root_edit,(arr_28900[subidx_28903__$1]),i_28904__$1,val));
 }
 
 return ret;
 });
 
-//# sourceMappingURL=transients.js.map?rel=1576339898483
+//# sourceMappingURL=transients.js.map?rel=1576361234076
