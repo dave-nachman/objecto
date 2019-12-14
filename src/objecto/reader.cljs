@@ -34,5 +34,3 @@
     method-definition = expr <w>? <'>>'> <w>? identifier <w> locals <w> (expr <'.'>)*
     w = #'( |\n)+'
    "))
-
-(read "'sss'")
