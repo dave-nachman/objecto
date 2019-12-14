@@ -8,7 +8,7 @@
   (let [[[_ [_ ident] value]] ast]
     (assoc env (keyword ident) (eval-inner [value] env))))
 
-(defn- read-literal [ast env]
+(defn- read-literal [ast _env]
    (let [[[_ value]] ast]
       (edn/read-string value)))
 
@@ -56,8 +56,7 @@
            (get-method identifier (:super class))
            (if (:class class)
              (get-method identifier (:class class))
-            (do
-               (throw (js/Error. (str "message not understood: " identifier)))))))))
+             (throw (js/Error. (str "message not understood: " identifier))))))))
 
 (defn- message [ast env]
    (let [[[_ raw-instance & params]] ast
@@ -110,11 +109,11 @@
       :symbol (keyword (read-literal ast env)))))
 
 (defn- method-definition [ast env]
-  (let [[[_ [_ receiver] [_ method-name] [_ locals] & body]] ast]
+  (let [[[_ [_ receiver] [_ method-name] [_ _] & body]] ast]
     (assoc-in 
      env 
      [(keyword receiver) (keyword method-name)] 
-     (fn [self params raw-env] 
+     (fn [self _params raw-env] 
        (let [env (assoc raw-env :self self)]
           (eval-inner body env))))))
 

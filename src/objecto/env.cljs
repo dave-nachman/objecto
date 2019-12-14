@@ -1,15 +1,13 @@
 (ns objecto.env)
 
-(declare set-env)
+(defn subclass [inst _params _env]
+  (assoc inst :super inst :ident (rand-int 100000000)))
 
-(defn subclass [inst params env]
-    (assoc inst :super inst :ident (rand-int 100000000)))
-    
-(defn new-instance [inst params env]
-    {:class inst})
+(defn new-instance [inst _params _env]
+  {:class inst})
 
-(def env 
-  (atom 
+(def env
+  (atom
    {:Object
     {:subclass subclass
      :ident 0
@@ -20,12 +18,12 @@
     :Boolean
     {:type :class
      :ident 2
-     :ifTrue:ifFalse 
+     :ifTrue:ifFalse
      (fn [self params env]
-       (if self 
-         ((:value (get params :ifTrue {:value (fn [_ _ _] nil)})) self [] env) 
-         ((:value (get params :ifFalse {:value (fn [_ _ _] nil)})) self [] env)))} 
-    
+       (if self
+         ((:value (get params :ifTrue {:value (fn [_ _ _] nil)})) self [] env)
+         ((:value (get params :ifFalse {:value (fn [_ _ _] nil)})) self [] env)))}
+
     :Number
     {:double (fn [x _ _] (* x 2))
      :ident 1
