@@ -1,1 +1,0 @@
-{:output-to "out/testable.js", :output-dir "resources/public/js/test/out", :main "objecto.runner", :target :nodejs, :optimizations :simple, :watch-fn #object[user$eval20708$fn__20717 0x41a17eaa "user$eval20708$fn__20717@41a17eaa"], :verbose true}
