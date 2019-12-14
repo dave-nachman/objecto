@@ -5,7 +5,7 @@
   (insta/parser
    "<start> = <w>? (top | top <'.'> (<w> top <'.'>)*) <w>?
     <top> = expr | assignment | method-definition | comment
-    <expr> = unary-message |  cascaded-message | keyword-message | bin-or-value | return-expr
+    <expr> = unary-message | cascaded-message | keyword-message | bin-or-value | return-expr
     return-expr = <return> <w>? expr
     <bin-or-value> = binary-message | value
     assignment = identifier <w> <':='> <w> expr
