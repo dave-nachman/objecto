@@ -7,10 +7,10 @@ goog.require('objecto.env');
 objecto.repl.get_class_name = (function objecto$repl$get_class_name(value,env){
 var ident = new cljs.core.Keyword(null,"ident","ident",-742346).cljs$core$IFn$_invoke$arity$1(value);
 var match = cljs.core.filter.call(null,((function (ident){
-return (function (p__31254){
-var vec__31255 = p__31254;
-var _ = cljs.core.nth.call(null,vec__31255,(0),null);
-var v = cljs.core.nth.call(null,vec__31255,(1),null);
+return (function (p__34931){
+var vec__34932 = p__34931;
+var _ = cljs.core.nth.call(null,vec__34932,(0),null);
+var v = cljs.core.nth.call(null,vec__34932,(1),null);
 return ((cljs.core.map_QMARK_.call(null,v)) && (cljs.core._EQ_.call(null,ident,new cljs.core.Keyword(null,"ident","ident",-742346).cljs$core$IFn$_invoke$arity$1(v))));
 });})(ident))
 ,env);
@@ -50,4 +50,4 @@ objecto.repl.read_eval.call(null,"[x | x ] value:");
 objecto.repl.read_eval.call(null,"-23 abs");
 objecto.repl.read_eval.call(null,"'x' double");
 
-//# sourceMappingURL=repl.js.map?rel=1576362699513
+//# sourceMappingURL=repl.js.map?rel=1576363456320

@@ -1,5 +1,5 @@
 (ns objecto.core
-  (:require [reagent.core :as reagent :refer [atom]]
+  (:require [reagent.core :as reagent]
             [objecto.ui :refer [ui]]))
 
 (enable-console-print!)

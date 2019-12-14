@@ -15,13 +15,14 @@
     unary-message = (value | unary-message) <w> identifier
     binary-message = (value | unary-message | binary-message) <w> binary-identifier <w> (value | unary-message)
     <value> = (identifier | character | string | number | boolean | nil | symbol | code-block) <(<w> comment)>?
+    array = <'#('> (<w>? value <w>?) * <') '> (* need to finish adding *)
     identifier = #'[A-z]+'
     symbol = bare-symbol | quoted-symbol
     <bare-symbol> = <'#'> #'[A-z]+'
     <quoted-symbol> = <\"#'\"> #'[A-z ]+' <\"'\">
     string = <\"'\"> #'[A-z ]+' <\"'\">
     comment = <'\"'> #'[A-z ]+' <'\"'> 
-    number = #'-?\\d+(.\\d+)?'
+    number = #'-?\\d+(\\.\\d+)?'
     character = <'$'> #'[A-z]'
     boolean = 'true' | 'false'
     nil = 'nil'
@@ -34,3 +35,5 @@
     method-definition = expr <w>? <'>>'> <w>? identifier <w> locals <w> (expr <'.'>)*
     w = #'( |\n)+'
    "))
+
+(read "#(1 2 3)")
