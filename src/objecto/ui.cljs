@@ -17,7 +17,9 @@
 (defn render-env-kv [[k v]]
   [:tr
    [:td (name k)]
-   [:td (str v)]])
+   [:td (if (nil? v) "nil" (str v))]])
+
+
 
 (defn ui []
   [:div {:style {:display "flex"}}

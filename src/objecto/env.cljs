@@ -6,9 +6,8 @@
 (defn new-instance [inst _params _env]
   {:class inst})
 
-(def env
-  (atom
-   {:Object
+(def ^:private default-env
+  {:Object
     {:subclass subclass
      :ident 0
      :type :class
@@ -29,7 +28,7 @@
      :ident 2
      :double (fn [x _ _] (str x x))
      :index 
-     (fn [self params env]
+     (fn [self params _]
        (clojure.string/index-of self (get params :index)))} 
 
     :Number
@@ -39,4 +38,16 @@
      :type :class
      :add (fn [x params _] (+ x (:add params)))
      :> (fn [x y _] (> x y))
-     :+ (fn [x y _] (+ x y))}}))
+     :< (fn [x y _] (< x y))
+     :>= (fn [x y _] (>= x y))
+     :<= (fn [x y _] (<= x y))
+     :== (fn [x y _] (== x y))
+     :+ (fn [x y _] (+ x y))
+     :- (fn [x y _] (- x y))
+     :/ (fn [x y _] (/ x y))
+     :* (fn [x y _] (* x y))}})
+     
+(def env (atom default-env))
+
+(defn build-env [] default-env)
+   

@@ -4,16 +4,17 @@
 (def read
   (insta/parser
    "<start> = <w>? (top | top <'.'> (<w> top <'.'>)*) <w>?
-    <top> = expr | assignment | method-definition | comment
-    <expr> = unary-message | cascaded-message | keyword-message | bin-or-value | return-expr
+    <top> = method-definition | expr | comment
+    <expr> = assignment | unary-message | cascaded-message | keyword-message | bin-or-value | return-expr
     return-expr = <return> <w>? expr
-    <bin-or-value> = binary-message | value
+    <bin-or-value> = binary-parens-message | binary-message | value
     assignment = identifier <w> <':='> <w> expr
-    keyword-message = (value | unary-message | binary-message) (<w> param)+
-    cascaded-message = (value | unary-message | binary-message) <w> cascade-stmt (<';'> <w> cascade-stmt)*
+    keyword-message = (value | unary-message | binary-parens-message | binary-message) (<w> param)+
+    cascaded-message = (value | unary-message | binary-parens-message | binary-message) <w> cascade-stmt (<';'> <w> cascade-stmt)*
     cascade-stmt = param (<w> param)*
     unary-message = (value | unary-message) <w> identifier
-    binary-message = (value | unary-message | binary-message) <w> binary-identifier <w> (value | unary-message)
+    <binary-parens-message> = <'('> binary-message <')'>
+    binary-message = (value | unary-message | binary-parens-message | binary-message) <w> binary-identifier <w> (value | unary-message | binary-parens-message)
     <value> = (identifier | character | string | number | boolean | nil | symbol | code-block) <(<w> comment)>?
     array = <'#('> (<w>? value <w>?) * <') '> (* need to finish adding *)
     identifier = #'[A-z]+'
@@ -21,19 +22,18 @@
     <bare-symbol> = <'#'> #'[A-z]+'
     <quoted-symbol> = <\"#'\"> #'[A-z ]+' <\"'\">
     string = <\"'\"> #'[A-z ]+' <\"'\">
-    comment = <'\"'> #'[A-z ]+' <'\"'> 
+    comment = <'\"'> #'([^\"]|\\n)+' <'\"'> 
     number = #'-?\\d+(\\.\\d+)?'
     character = <'$'> #'[A-z]'
     boolean = 'true' | 'false'
     nil = 'nil'
     return = <'^'>
     param = identifier <':'> <w> expr
-    code-block = <'['> code-block-params <w>? expr <w>? <']'>
-    code-block-params = (<w?> (<':'> #'[A-z]+' <w>?)* <'|'>) | <w>?
-    binary-identifier = #'[+/\\*~<>=@%|&?!,]+'
+    code-block = <'['> code-block-params <w>? (expr <'.'> <w>)* expr <w>? <']'>
+    code-block-params = (<w?> (<':'> #'[A-z]+' <w>?)+ <'|'>) | <w>?
+    binary-identifier = #'[+/\\*~<>=@%&?!,]+'
     locals = <'|'> <w>? identifier? (<w> identifier)* <w>? <'|'>
-    method-definition = expr <w>? <'>>'> <w>? identifier <w> locals <w> (expr <'.'>)*
+    method-definition = expr <w>? <'>>'> <w>? identifier (<w> comment)? <w> locals <w> (expr <'.'> <w>?)* (expr <'.'>? <w>?)
     w = #'( |\n)+'
    "))
 
-(read "#(1 2 3)")

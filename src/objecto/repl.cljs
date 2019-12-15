@@ -1,7 +1,7 @@
 (ns objecto.repl
   (:require [objecto.reader :as reader]
             [objecto.eval :as eval]
-            [objecto.env :refer [env]]))
+            [objecto.env :refer [env build-env]]))
 
 (defn get-class-name [value env]
   (let [ident (:ident value)

@@ -50,3 +50,14 @@
 
 (deftest block-eval
   (is (= (read-eval "[ :x | x ] value: 42") 42)))
+
+(deftest left-right-precedence
+  (is (= (read-eval "1 + 2 * 3.") 9)))
+
+(deftest parens
+  (is (= (read-eval "1 + (2 * 3).") 7)))
+
+(deftest define-and-execute-method
+  (do
+    (read-eval "Number >> triple || self * 3.")
+    (is (= (read-eval "33 triple") 99))))
