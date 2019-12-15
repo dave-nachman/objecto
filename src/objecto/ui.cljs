@@ -16,8 +16,10 @@
 
 (defn render-env-kv [[k v]]
   [:tr
-   [:td [:div {:style {:padding 6}} (name k)]]
+   {:key key}
+   [:td {:key "key"} [:div {:style {:padding 6}} (name k)]]
    [:td
+    {:key "value"}
     (cond
       (nil? v) [:div {:style {:padding 6}} "nil"]
       (map? v) (map render-env-kv (dissoc v :ident :type :gclass :class__new))
