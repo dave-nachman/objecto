@@ -34,6 +34,6 @@
     code-block-params = (<w?> (<':'> #'[A-z]+' <w>?)+ <'|'>) | <w>?
     binary-identifier = #'[+/\\*~<>=@%&?!,]+'
     locals = <'|'> <w>? identifier? (<w> identifier)* <w>? <'|'>
-    method-definition = expr <w>? <'>>'> <w>? identifier (<w> comment)? <w> locals <w> (expr <'.'> <w>?)* (expr <'.'>? <w>?)
+    method-definition = expr <w>? <'>>'> <w>? identifier <(<w> comment)>? <w> locals <w> (expr <'.'> <w>?)* (expr <'.'>? <w>?)
     w = #'( |\n)+'
    "))
