@@ -80,7 +80,7 @@
        (get env (keyword value))
        nil)))
 
-;; TODO: add support for return expressions
+;; TODO: add support for multiple expressions and return expressions
 (defn- code-block [ast env]
   (let [[[_ [_ & params] & nodes]] ast]
      {:type :code-block 
@@ -90,7 +90,7 @@
           (let [value-params (filter (fn [[k _]] (= k :value)) (:__raw args))
                 zipped (map vector params (map second value-params))
                 new-env (reduce (fn [env [k v]] (assoc env (keyword k) v)) env zipped)]
-              (reduce (fn [in node] (eval-inner [node] in)) {:env new-env} nodes)))}))
+              (eval-inner [(first nodes)] new-env)))}))
 
 (defn- eval-inner [ast env]
   (let [[[head]] ast]
