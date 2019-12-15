@@ -41,13 +41,15 @@
             :margin "6px 0"
             :background-color "rgb(230, 230, 230)"}
     :on-click #(run-code body)}
-   [:span {:style {:color "#52a052"}} "▶ "]
+   [:span {:style {:color "rgb(180, 180, 180)"}} "▶ "]
    body])
 
 (defn ui []
   [:div {:style {:display "flex"}}
+
    [:div {:style {:flex-basis "70%"}}
-    [:h1 "Objecto"]
+    [:h1 {:style {:margin-bottom 0}} "Objecto"]
+    [:div {:style {:margin-bottom 12}} "WIP implementation of " [:a {:target "_blank" :href "https://en.wikipedia.org/wiki/Smalltalk"} "Smalltalk"]]
     [:input
      {:style {:font-family "'IBM Plex Mono', monospace"}
       :value (@app-state :input)
@@ -57,7 +59,8 @@
     [:h2 "Environment"]
     [:table
      {:style {:font-family "'IBM Plex Mono', monospace"}}
-     [:tbody (map render-env-kv @env)]]]
+     [:tbody (map render-env-kv @env)]]
+    [:div {:style {:margin-top 16}} "Made by Dave Nachman | " [:a {:href "https://github.com/dave-nachman/objecto"} "Github"]]]
    [:div
     {:style {:padding-left 12}}
     [:h2 "Examples"]
