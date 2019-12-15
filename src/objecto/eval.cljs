@@ -78,7 +78,7 @@
    (let [[[_ value]] ast]
      (if (contains? env (keyword value))  
        (get env (keyword value))
-       nil)))
+       (throw (js/Error. (str "missing identifier: " value))))))
 
 ;; TODO: add support for multiple expressions and return expressions
 (defn- code-block [ast env]
@@ -114,7 +114,7 @@
      env 
      [(keyword receiver) (keyword method-name)] 
      (fn [self _params raw-env] 
-       (let [env (assoc raw-env :self self)]
+       (let [env (assoc raw-env :self self)] ; add self to environment
           (eval-inner body env))))))
 
 (defn- eval-one [ast in]
