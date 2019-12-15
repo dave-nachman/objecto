@@ -36,5 +36,3 @@
     method-definition = expr <w>? <'>>'> <w>? identifier (<w> comment)? <w> locals <w> (expr <'.'> <w>?)* (expr <'.'>? <w>?)
     w = #'( |\n)+'
    "))
-
-(read "[ :x | x ] value: 42")
