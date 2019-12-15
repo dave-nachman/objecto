@@ -24,6 +24,7 @@
     (reset! env new-env)
     (format-value value new-env)))
 
+;; TODO: replace stateful read-eval with stateless version for most uses
 (defn read-eval [input]
   (-> input
       reader/read
