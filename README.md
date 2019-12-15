@@ -10,7 +10,7 @@ Along with the interpreter is a [hosted web REPL](https://still-brushlands-69617
 
 In traditional lisp fashion, objecto implements *read* and *eval* functions, forming the building blocks of the read/eval/print/loop formed by the web app REPL.
 
-The reader is implemented using the [instaparse](https://github.com/Engelberg/instaparse) parsing library, with the UI implemented using [reagent](https://github.com/reagent-project/reagent)
+The reader is implemented using the [instaparse](https://github.com/Engelberg/instaparse) parsing library, with the UI implemented using [reagent](https://github.com/reagent-project/reagent). [deftest](https://clojuredocs.org/clojure.test/deftest) and [doo](https://github.com/bensu/doo) is used for testing.
 
 The book [Pharo By Example](http://books.pharo.org/pharo-by-example/) was very helpful in for understanding and implementing Smalltalk syntax and semantics (Pharo is a modern dialect of Smalltalk). 
 

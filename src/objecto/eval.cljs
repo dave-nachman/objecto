@@ -12,6 +12,10 @@
   (let [[[_ value]] ast]
     (edn/read-string value)))
 
+(defn- read-string [ast _env]
+  (let [[[_ value]] ast]
+    (clojure.string/replace value "'" "")))
+
 (defn- get-meta-class [class]
   (->> class
        (filter (fn [[k _]] (clojure.string/starts-with? (name k) "class__")))
@@ -22,6 +26,7 @@
   (and (map? obj) (= (:type obj) :class)))
 
 (defn- get-class [instance env]
+  (println instance)
   (cond
      ;; literals
     (number? instance) (env :Number)
@@ -54,6 +59,7 @@
 
 (defn- get-method [identifier class]
   (let [method (identifier class)]
+    (println identifier class)
     (if method
       method
       (if (:super class)
@@ -106,7 +112,7 @@
       :binary-message (binary-message ast env)
       :identifier (identifier ast env)
       :code-block (code-block ast env)
-      :string (read-literal ast env)
+      :string (read-string ast env)
       :number (read-literal ast env)
       :boolean (read-literal ast env)
       :nil (read-literal ast env)
@@ -132,7 +138,7 @@
       :binary-message {:env env :value (binary-message [ast] env)}
       :identifier {:env env :value (identifier [ast] env)}
       :code-block {:env env :value (code-block [ast] env)}
-      :string {:env env :value (read-literal [ast] env)}
+      :string {:env env :value (read-string [ast] env)}
       :number {:env env :value (read-literal [ast] env)}
       :boolean {:env env :value (read-literal [ast] env)}
       :nil {:env env :value (read-literal [ast] env)}

@@ -48,6 +48,9 @@
 (deftest test-number
   (is (= (read-eval "42.") 42)))
 
+(deftest test-string
+  (is (= (read-eval "'abc'") "abc")))
+
 (deftest block-eval
   (is (= (read-eval "[ :x | x ] value: 42") 42)))
 
