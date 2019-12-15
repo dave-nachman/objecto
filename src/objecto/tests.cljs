@@ -61,3 +61,4 @@
   (do
     (read-eval "Number >> triple || self * 3.")
     (is (= (read-eval "33 triple") 99))))
+
