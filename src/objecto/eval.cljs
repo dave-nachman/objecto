@@ -125,6 +125,7 @@
        (let [env (assoc raw-env :self self)] ; add self to environment
          (eval-inner body env))))))
 
+;; TODO: remove repetition with eval-inner
 (defn- eval-one [ast in]
   (let [env (:env in)]
     (case (first ast)
