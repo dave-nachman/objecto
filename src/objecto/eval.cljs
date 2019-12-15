@@ -26,7 +26,6 @@
   (and (map? obj) (= (:type obj) :class)))
 
 (defn- get-class [instance env]
-  (println instance)
   (cond
      ;; literals
     (number? instance) (env :Number)
@@ -59,7 +58,6 @@
 
 (defn- get-method [identifier class]
   (let [method (identifier class)]
-    (println identifier class)
     (if method
       method
       (if (:super class)
