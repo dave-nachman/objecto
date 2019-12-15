@@ -9,12 +9,13 @@
     return-expr = <return> <w>? expr
     <bin-or-value> = binary-parens-message | binary-message | value
     assignment = identifier <w> <':='> <w> expr
-    keyword-message = (value | unary-message | binary-parens-message | binary-message) (<w> param)+
-    cascaded-message = (value | unary-message | binary-parens-message | binary-message) <w> cascade-stmt (<';'> <w> cascade-stmt)*
+    <message> = value | unary-message | binary-parens-message | binary-message 
+    keyword-message = message (<w> param)+
+    cascaded-message = message <w> cascade-stmt (<';'> <w> cascade-stmt)*
     cascade-stmt = param (<w> param)*
     unary-message = (value | unary-message) <w> identifier
     <binary-parens-message> = <'('> binary-message <')'>
-    binary-message = (value | unary-message | binary-parens-message | binary-message) <w> binary-identifier <w> (value | unary-message | binary-parens-message)
+    binary-message = message <w> binary-identifier <w> (value | unary-message | binary-parens-message)
     <value> = (identifier | character | string | number | boolean | nil | symbol | code-block) <(<w> comment)>?
     array = <'#('> (<w>? value <w>?) * <') '> (* need to finish adding *)
     identifier = #'[A-z]+'
